@@ -17,8 +17,14 @@ if (!roomId) {
 let localTracks = []//stores audio and video streams
 let remoteUsers = {}
 
+let displayName=sessionStorage.getItem('display_name')
+if(!displayName)
+{
+    window.location='lobby.html';
+}
 let localScreenTracks;
 let sharingScreen=false;
+
 
 let joinRoomInit = async () => {
     
