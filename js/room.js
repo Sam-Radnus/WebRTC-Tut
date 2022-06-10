@@ -30,3 +30,44 @@ chatButton.addEventListener('click', () => {
 
   activeChatContainer = !activeChatContainer;
 });
+
+let displayFrame=document.getElementById('stream__box')
+let videoFrames=document.getElementsByClassName('video__container');
+let userIdInDisplayFrame=null;
+displayFrame.style.display='none';
+let expandVideoFrame=(e)=>{
+    let child=displayFrame.children[0];
+    if(child)
+    {
+       document.getElementById('streams__container').appendChild(child);
+    }
+    displayFrame.style.display='block';
+    displayFrame.appendChild(e.currentTarget)
+    userIdInDisplayFrame=e.currentTarget.id
+    console.warn(displayFrame);
+    for(let i=0;i<videoFrames.length;i++)
+    {
+       if(videoFrames[i].id!=userIdInDisplayFrame){
+           videoFrames[i].style.width='150px';
+           videoFrames[i].style.height='150px';
+       }
+    }
+}
+for(let i=0;i<videoFrames.length;i++)
+{
+  videoFrames[i].addEventListener('click',expandVideoFrame);
+  
+}
+let hideDisplayFrame=()=>{
+  userIdInDisplayFrame=null;
+  displayFrame.style.display='none';
+  console.error('not');
+  let child=displayFrame.children[0];
+  document.getElementById('streams__container').appendChild(child)
+  for(let i=0;i<videoFrames.length;i++)
+  {
+    videoFrames[i].style.height='300px';
+    videoFrames[i].style.width='300px';
+  }
+}
+displayFrame.addEventListener('click',hideDisplayFrame);
