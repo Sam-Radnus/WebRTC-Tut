@@ -183,6 +183,7 @@
   border-radius:0;
   height: 100%!important;
   width:100%!important;
+  background-size: 300px;
 
 }
 #stream__box video{
@@ -201,7 +202,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
- 
+  background-image: url("/images/logo.png");
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: 75px;
   border: 2px solid #b366f9;
   border-radius: 50%;
   cursor:pointer;
