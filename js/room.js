@@ -61,7 +61,6 @@ for(let i=0;i<videoFrames.length;i++)
 let hideDisplayFrame=()=>{
   userIdInDisplayFrame=null;
   displayFrame.style.display='none';
-  console.error('not');
   let child=displayFrame.children[0];
   document.getElementById('streams__container').appendChild(child)
   for(let i=0;i<videoFrames.length;i++)
